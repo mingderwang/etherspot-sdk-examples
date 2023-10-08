@@ -3,14 +3,15 @@ import {default as erc20Abi} from 'human-standard-token-abi';
 const abiCoder = require('web3-eth-abi');
 
 /**
- * Example code to create smart wallet on kovan testnet using etherspot sdk
+ * Example code to create smart wallet on Goerli testnet using etherspot sdk
  * the generated smart wallet is not deployed on chain until the first transaction.
  */
+const privateKey = "0x398dd483a53fef9b5b37c142bdbabcef69a9b5e133885ffb62981f6484ee7aa1" // or randomPrivateKey()
 
 async function main(): Promise<void> {
-  const sdk = new Sdk(randomPrivateKey(), {
+  const sdk = new Sdk(privateKey, {
     env: EnvNames.TestNets, // Use EnvNames.Mainnet, If you are accessing Mainnets
-    networkName: NetworkNames.Kovan,
+    networkName: NetworkNames.Goerli,
     //projectKey: 'test-project', //optional can be used to uniquely identify your project
   });
   
@@ -21,8 +22,8 @@ async function main(): Promise<void> {
   console.log('Smart wallet', state.account);
   console.log('Account balances ', await sdk.getAccountBalances());
 
-  const receiver = '0x940d89BFAB20d0eFd076399b6954cCc42Acd8e15'; // Replace with address of your choice
-  const tokenAddress = '0x9de9cde889a40b7402d824386064d17792298e1b'; //PLR contract on Kovan
+  const receiver = '0x9E4C996EFD1Adf643467d1a1EA51333C72a25453'; // Replace with address of your choice
+  const tokenAddress = '0x9de9cde889a40b7402d824386064d17792298e1b'; //PLR contract on Goerli
   const tokens = '1000000000000000000000'; // 1000 PLR
   const methodName = erc20Abi.find(({ name }) => name === 'transfer');
   console.log('Method Name ',methodName);

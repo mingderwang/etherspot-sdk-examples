@@ -1,14 +1,14 @@
 import { Sdk, randomPrivateKey, NetworkNames, EnvNames } from 'etherspot';
 
 /**
- * Example code to create smart wallet on kovan testnet using etherspot sdk
+ * Example code to create smart wallet on Goerli testnet using etherspot sdk
  * the generated smart wallet is not deployed on chain until the first transaction.
  */
 
 async function main(): Promise<void> {
   const sdk = new Sdk(randomPrivateKey(), {
     env: EnvNames.TestNets, // Use EnvNames.Mainnet, If you are accessing Mainnets
-    networkName: NetworkNames.Kovan,
+    networkName: NetworkNames.Goerli,
     //projectKey: 'test-project', //optional can be used to uniquely identify your project
   });
 

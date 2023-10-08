@@ -1,7 +1,7 @@
 import { Sdk, randomPrivateKey, NetworkNames, EnvNames } from 'etherspot';
 
 /**
- * Example code to create smart wallet on kovan testnet using etherspot sdk
+ * Example code to create smart wallet on Goerli testnet using etherspot sdk
  * the generated smart wallet is not deployed on chain until the first transaction.
  */
 
@@ -15,7 +15,7 @@ const privateKey = "0x398dd483a53fef9b5b37c142bdbabcef69a9b5e133885ffb62981f6484
 async function main(): Promise<void> {
   const sdk = new Sdk(privateKey, {
     env: EnvNames.TestNets, // Use EnvNames.Mainnet, If you are accessing Mainnets
-    networkName: NetworkNames.Ropsten,
+    networkName: NetworkNames.Goerli,
     //projectKey: 'test-project', //optional can be used to uniquely identify your project
   });
 
@@ -27,8 +27,8 @@ async function main(): Promise<void> {
   console.log('sdk.state.network', state.network);
   console.log('Account balances ', (await sdk.getAccountBalances()).items[0].balance.toString());
 
-  //const receiver = '0x940d89BFAB20d0eFd076399b6954cCc42Acd8e15'; // Replace with address of your choice // for Kovan
-  const receiver = '0xf3e06eeC1A90A7aEB10F768B924351A0F0158A1A'; // Replace with address of your choice // for Ropsten
+  //const receiver = '0x940d89BFAB20d0eFd076399b6954cCc42Acd8e15'; // Replace with address of your choice // for Goerli
+  const receiver = '0x9E4C996EFD1Adf643467d1a1EA51333C72a25453'; // Replace with address of your choice // for Goerli
   const amtInWei = '500000000000000'; //Send 0.0005 ETH
   //this method will add the transaction to a batch, which has to be executed later.
   const transaction = await sdk.batchExecuteAccountTransaction({

@@ -1,5 +1,5 @@
 import { Sdk, randomPrivateKey, NetworkNames, EnvNames } from 'etherspot';
-import { GetGatewaySupportedTokenDto } from 'src';
+//import { GetGatewaySupportedTokenDto } from 'src';
 
 /**
  * Example code to list all supported networks on etherspot.
